@@ -1,4 +1,4 @@
-namespace WebApplication1
+namespace OnionForceSpin.API
 {
     public class WeatherForecast
     {
