@@ -1,23 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1102B8A8-8601-46E0-9FA6-44CF65A3EB38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8559C2C8-D0D6-4826-B307-02387CD2ACCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Domain", "OnionForceSpin.Domain\OnionForceSpin.Domain.csproj", "{B5E5D332-4193-441B-A1ED-F4D60CBEEB97}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Application", "OnionForceSpin.Application\OnionForceSpin.Application.csproj", "{9D6466B0-6078-43DD-89F1-86D7502BB64F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Infrastructure", "OnionForceSpin.Infrastructure\OnionForceSpin.Infrastructure.csproj", "{97878FF6-75AA-479D-931C-2396CCAB98AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Persistence", "OnionForceSpin.Persistence\OnionForceSpin.Persistence.csproj", "{BCBE56F4-76C1-4D93-95A9-6F97D73212D5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{26572FFD-5A5E-4818-B711-11F8005E00C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.API", "OnionForceSpin.API\OnionForceSpin.API.csproj", "{CF407E45-6803-4502-B981-82D9F6B17040}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Application", "Core\OnionForceSpin.Application\OnionForceSpin.Application.csproj", "{D7B6C00E-4DB3-4B01-98EE-571C48B14663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Domain", "Core\OnionForceSpin.Domain\OnionForceSpin.Domain.csproj", "{6C275B1F-0499-4528-B4E1-CC039AD96E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Infrastructure", "Infrastructure\OnionForceSpin.Infrastructure\OnionForceSpin.Infrastructure.csproj", "{37082AF5-2287-4F70-83FF-0DD803DCC5ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Persistence", "Infrastructure\OnionForceSpin.Persistence\OnionForceSpin.Persistence.csproj", "{C0193147-3856-42B9-9BEE-225ECC4805AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.API", "Presentation\OnionForceSpin.API\OnionForceSpin.API.csproj", "{48D9A731-9C7B-44A7-85A1-5AAB34FEA8CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,35 +25,35 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B5E5D332-4193-441B-A1ED-F4D60CBEEB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5E5D332-4193-441B-A1ED-F4D60CBEEB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5E5D332-4193-441B-A1ED-F4D60CBEEB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5E5D332-4193-441B-A1ED-F4D60CBEEB97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D6466B0-6078-43DD-89F1-86D7502BB64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D6466B0-6078-43DD-89F1-86D7502BB64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D6466B0-6078-43DD-89F1-86D7502BB64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D6466B0-6078-43DD-89F1-86D7502BB64F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97878FF6-75AA-479D-931C-2396CCAB98AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97878FF6-75AA-479D-931C-2396CCAB98AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97878FF6-75AA-479D-931C-2396CCAB98AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97878FF6-75AA-479D-931C-2396CCAB98AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCBE56F4-76C1-4D93-95A9-6F97D73212D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCBE56F4-76C1-4D93-95A9-6F97D73212D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCBE56F4-76C1-4D93-95A9-6F97D73212D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCBE56F4-76C1-4D93-95A9-6F97D73212D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF407E45-6803-4502-B981-82D9F6B17040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF407E45-6803-4502-B981-82D9F6B17040}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF407E45-6803-4502-B981-82D9F6B17040}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF407E45-6803-4502-B981-82D9F6B17040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B6C00E-4DB3-4B01-98EE-571C48B14663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B6C00E-4DB3-4B01-98EE-571C48B14663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B6C00E-4DB3-4B01-98EE-571C48B14663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B6C00E-4DB3-4B01-98EE-571C48B14663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C275B1F-0499-4528-B4E1-CC039AD96E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C275B1F-0499-4528-B4E1-CC039AD96E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C275B1F-0499-4528-B4E1-CC039AD96E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C275B1F-0499-4528-B4E1-CC039AD96E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37082AF5-2287-4F70-83FF-0DD803DCC5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37082AF5-2287-4F70-83FF-0DD803DCC5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37082AF5-2287-4F70-83FF-0DD803DCC5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37082AF5-2287-4F70-83FF-0DD803DCC5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D9A731-9C7B-44A7-85A1-5AAB34FEA8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D9A731-9C7B-44A7-85A1-5AAB34FEA8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D9A731-9C7B-44A7-85A1-5AAB34FEA8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D9A731-9C7B-44A7-85A1-5AAB34FEA8CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B5E5D332-4193-441B-A1ED-F4D60CBEEB97} = {1102B8A8-8601-46E0-9FA6-44CF65A3EB38}
-		{9D6466B0-6078-43DD-89F1-86D7502BB64F} = {1102B8A8-8601-46E0-9FA6-44CF65A3EB38}
-		{97878FF6-75AA-479D-931C-2396CCAB98AF} = {8559C2C8-D0D6-4826-B307-02387CD2ACCF}
-		{BCBE56F4-76C1-4D93-95A9-6F97D73212D5} = {8559C2C8-D0D6-4826-B307-02387CD2ACCF}
-		{CF407E45-6803-4502-B981-82D9F6B17040} = {26572FFD-5A5E-4818-B711-11F8005E00C2}
+		{D7B6C00E-4DB3-4B01-98EE-571C48B14663} = {1102B8A8-8601-46E0-9FA6-44CF65A3EB38}
+		{6C275B1F-0499-4528-B4E1-CC039AD96E7F} = {1102B8A8-8601-46E0-9FA6-44CF65A3EB38}
+		{37082AF5-2287-4F70-83FF-0DD803DCC5ED} = {8559C2C8-D0D6-4826-B307-02387CD2ACCF}
+		{C0193147-3856-42B9-9BEE-225ECC4805AE} = {8559C2C8-D0D6-4826-B307-02387CD2ACCF}
+		{48D9A731-9C7B-44A7-85A1-5AAB34FEA8CB} = {26572FFD-5A5E-4818-B711-11F8005E00C2}
 	EndGlobalSection
 EndGlobal
