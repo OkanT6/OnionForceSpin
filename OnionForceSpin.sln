@@ -15,10 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.Persistence", "Infrastructure\OnionForceSpin.Persistence\OnionForceSpin.Persistence.csproj", "{C0193147-3856-42B9-9BEE-225ECC4805AE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{72664E95-C821-40D5-BFD8-138D0F5BF157}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionForceSpin.API", "OnionForceSpin.API\OnionForceSpin.API.csproj", "{DA1E30E8-4AB8-4C94-AEA6-6E969B261CA5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +37,6 @@ Global
 		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0193147-3856-42B9-9BEE-225ECC4805AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA1E30E8-4AB8-4C94-AEA6-6E969B261CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA1E30E8-4AB8-4C94-AEA6-6E969B261CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA1E30E8-4AB8-4C94-AEA6-6E969B261CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA1E30E8-4AB8-4C94-AEA6-6E969B261CA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +46,5 @@ Global
 		{6C275B1F-0499-4528-B4E1-CC039AD96E7F} = {1102B8A8-8601-46E0-9FA6-44CF65A3EB38}
 		{37082AF5-2287-4F70-83FF-0DD803DCC5ED} = {8559C2C8-D0D6-4826-B307-02387CD2ACCF}
 		{C0193147-3856-42B9-9BEE-225ECC4805AE} = {8559C2C8-D0D6-4826-B307-02387CD2ACCF}
-		{DA1E30E8-4AB8-4C94-AEA6-6E969B261CA5} = {72664E95-C821-40D5-BFD8-138D0F5BF157}
 	EndGlobalSection
 EndGlobal
