@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OnionForceSpin.Domain\OnionForceSpin.Domain.csproj" />
+    <ProjectReference Include="..\..\Core\OnionForceSpin.Domain\OnionForceSpin.Domain.csproj" />
   </ItemGroup>
 
 </Project>
