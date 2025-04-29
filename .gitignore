@@ -363,7 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # App settings files
-Presentation/OnionForceSpin/appsettings.json
-Presentation/OnionForceSpin/appsettings.*.json
-Presentation\OnionForceSpin.API\appsettings.json
-Presentation\OnionForceSpin.API\appsettings.*.json
+Presentation/OnionForceSpin.API/appsettings.json
+Presentation/OnionForceSpin.API/appsettings.*.json
