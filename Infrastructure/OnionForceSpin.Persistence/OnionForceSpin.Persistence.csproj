@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\OnionForceSpin.Application\OnionForceSpin.Application.csproj" />
     <ProjectReference Include="..\..\Core\OnionForceSpin.Domain\OnionForceSpin.Domain.csproj" />
   </ItemGroup>
 
