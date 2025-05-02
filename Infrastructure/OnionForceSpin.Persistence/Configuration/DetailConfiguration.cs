@@ -15,29 +15,39 @@ namespace OnionForceSpin.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<Detail> builder)
         {
-            Faker faker = new Faker("tr");
+            //Faker faker = new Faker("tr");
 
             Detail detail1 = new()
             {
                 Id = 1,
-                Title = faker.Lorem.Sentence(2),
-                Description = faker.Lorem.Sentence(5),
+                Title = "Volt",
+                Description = "150V",
                 CategoryId=1,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
             Detail detail2 = new()
             {
                 Id = 2,
-                Title = faker.Lorem.Sentence(2),
-                Description = faker.Lorem.Sentence(5),
-                CategoryId = 3,
-                IsDeleted = true
+                Title = "SIZE",
+                Description = "M",
+                CategoryId = 2,
+                IsDeleted = true,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12)
+
             };
             Detail detail3 = new()
             {
                 Id = 3,
-                Title = faker.Lorem.Sentence(2),
-                Description = faker.Lorem.Sentence(5),
-                CategoryId = 4,
+                Title = "RAM",
+                Description = "16 GB",
+                CategoryId = 3,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
 
             builder.HasData(detail1, detail2, detail3);

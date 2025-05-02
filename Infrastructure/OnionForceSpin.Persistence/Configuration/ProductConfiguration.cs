@@ -15,34 +15,45 @@ namespace OnionForceSpin.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            Faker faker = new Faker("tr");
+            //Faker faker = new Faker("tr");
 
             Product product1 = new()
             {
                 Id = 1,
-                Title = faker.Commerce.Product(),
-                Description = faker.Commerce.ProductDescription(),
+                Title = "Elektrikli Süpürge Fakir",
+                Description = "Güçlü emiş güçlü Fakir Elektrikli Süpürge",
                 BrandId = 1,
-                Discount = faker.Random.Decimal(5, 20),
-                Price = faker.Random.Decimal(50, 500)
+                Discount = 10,
+                Price = 500,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
             Product product2 = new()
             {
                 Id = 2,
-                Title = faker.Commerce.Product(),
-                Description = faker.Commerce.ProductDescription(),
+                Title = "Elbise Kırmızı",
+                Description = "Özel gün düğün/nişan/balo elbisesi." +
+                "Şık iddalı",
                 BrandId = 2,
-                Discount = faker.Random.Decimal(5, 20),
-                Price = faker.Random.Decimal(50, 500)
+                Discount = 15,
+                Price = 2500,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
             Product product3 = new()
             {
                 Id = 3,
-                Title = faker.Commerce.Product(),
-                Description = faker.Commerce.ProductDescription(),
+                Title = "Huawei D14 Laptop",
+                Description = "Huawei D14 LAPTOP 16 GB RAM 516GB SSD",
                 BrandId = 3,
-                Discount = faker.Random.Decimal(5, 20),
-                Price = faker.Random.Decimal(50, 500),
+                Discount = 25,
+                Price = 30000,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+
                 IsDeleted = true
             };
             builder.HasData(product1, product2, product3);

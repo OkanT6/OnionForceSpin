@@ -16,24 +16,33 @@ namespace OnionForceSpin.Persistence.Configuration
         {
             builder.Property(b => b.Name).HasMaxLength(256);
 
-            Faker faker = new Faker("tr");
+            //Faker faker = new Faker("tr");
 
             Brand brand1 = new()
             {
                 Id = 1,
-                Name = faker.Commerce.Department(),
+                Name = "Fakir",
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
             };
 
             Brand brand2 = new()
             {
                 Id = 2,
-                Name = faker.Commerce.Department(),
+                Name = "Mavi",
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
 
             Brand brand3 = new()
             {
                 Id = 3,
-                Name = faker.Commerce.Department(),
+                Name = "Huawei",
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+
                 IsDeleted = true,
             };
 

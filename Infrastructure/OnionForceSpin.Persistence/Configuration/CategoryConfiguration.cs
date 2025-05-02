@@ -19,6 +19,10 @@ namespace OnionForceSpin.Persistence.Configuration
                 Name = "Elektrik",
                 Priorty = 1,
                 ParentId=0,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
 
             Category category2 = new()
@@ -27,6 +31,10 @@ namespace OnionForceSpin.Persistence.Configuration
                 Name = "Moda",
                 Priorty = 2,
                 ParentId = 0,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
 
 
@@ -36,6 +44,10 @@ namespace OnionForceSpin.Persistence.Configuration
                 Name = "Bilgisayar",
                 Priorty = 1,
                 ParentId = 1,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
 
             Category parentCategory2 = new()
@@ -44,6 +56,10 @@ namespace OnionForceSpin.Persistence.Configuration
                 Name = "Kadın",
                 Priorty = 1,
                 ParentId = 2,
+                CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
+                IsDeleted = false
+
+
             };
 
             builder.HasData(category1, category2,parentCategory1,parentCategory2);
