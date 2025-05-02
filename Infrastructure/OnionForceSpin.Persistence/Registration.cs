@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OnionForceSpin.Application.Interfaces.Repositories;
 using OnionForceSpin.Persistence.Context;
+using OnionForceSpin.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,7 @@ namespace OnionForceSpin.Persistence
         {
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
         }
     }
 }
