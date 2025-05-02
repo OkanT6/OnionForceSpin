@@ -6,6 +6,7 @@ using OnionForceSpin.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,13 @@ namespace OnionForceSpin.Persistence.Configuration
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             //Faker faker = new Faker("tr");
+
+                builder.Property(e => e.Price)
+                      .HasPrecision(18, 2); // veya .HasColumnType("decimal(18,2)");
+
+                builder.Property(e => e.Discount)
+                      .HasPrecision(5, 2); // ihtiyacına göre ayarla
+            
 
             Product product1 = new()
             {
