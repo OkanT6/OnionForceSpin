@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnionForceSpin.Application.Interfaces.Repositories;
+using OnionForceSpin.Application.Interfaces.UnitOfWorks;
 using OnionForceSpin.Persistence.Context;
 using OnionForceSpin.Persistence.Repositories;
+using OnionForceSpin.Persistence.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,8 @@ namespace OnionForceSpin.Persistence
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         }
     }

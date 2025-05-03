@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace OnionForceSpin.Domain.Entities
 {
-    public class Brand:EntityBase
+    public class Brand : EntityBase
     {
         public Brand()
         {
-            
+
         }
 
         public Brand(string name)
@@ -19,6 +19,6 @@ namespace OnionForceSpin.Domain.Entities
             Name = name;
         }
 
-        public required   string Name { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -12,8 +12,8 @@ namespace OnionForceSpin.Persistence.Repositories
 {
     public class WriteRepository<T> : IWriteRepository<T> where T : class, IEntityBase, new()
     {
-        private readonly AppDbContext _context;
-        public WriteRepository(AppDbContext context)
+        private readonly DbContext _context;
+        public WriteRepository(DbContext context)
         {
             _context = context;
         }

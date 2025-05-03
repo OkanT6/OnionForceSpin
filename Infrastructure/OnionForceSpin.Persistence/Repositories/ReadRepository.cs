@@ -15,8 +15,8 @@ namespace OnionForceSpin.Persistence.Repositories
 {
     public class ReadRepository<T> : IReadRepository<T> where T : class, IEntityBase, new()
     {
-        private readonly AppDbContext _context;
-        public ReadRepository(AppDbContext context)
+        private readonly DbContext _context;
+        public ReadRepository(DbContext context)
         {
             _context = context;
         }
