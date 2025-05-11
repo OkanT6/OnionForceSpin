@@ -40,10 +40,15 @@ namespace OnionForceSpin.Persistence.Repositories
             await Task.Run(()=>Table.Remove(entity));
         }
 
+        public async Task HardDeleteRangeAsync(IList<T> entities)
+        {
+            await Task.Run(() => Table.RemoveRange(entities));
+        }
+
         //public async Task SoftDeleteAsync(T entity)
         //{
         //    await Task.Run(() => Table.Update(entity));
-            
+
         //}
 
 

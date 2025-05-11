@@ -1,4 +1,6 @@
 using OnionForceSpin.Persistence;
+using OnionForceSpin.Application;
+using OnionForceSpin.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(); // Controller'larý ekledik
 builder.Services.AddEndpointsApiExplorer(); // Swagger için minimal API'ler
 builder.Services.AddSwaggerGen(); // Swagger için controller destekli jenerasyon
+
 builder.Services.AddPersistence(builder.Configuration); // Kendi katmanýmýz
+builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
 
 var app = builder.Build();
 

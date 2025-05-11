@@ -13,5 +13,21 @@ namespace OnionForceSpin.Domain.Common
         public DateTime CreatedDate { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        // ➡️ Default constructor
+        public EntityBase()
+        {
+            CreatedDate = DateTime.Now;
+            IsDeleted = false;
+            //Console.WriteLine($"[EntityBase] - CreatedDate ayarlandı: {CreatedDate}, IsDeleted: {IsDeleted}");
+        }
+
+        // ➡️ ID ile başlatmak istersek bu constructor devreye girer
+        public EntityBase(int id) : this()
+        {
+            Id = id;
+            //Console.WriteLine($"[EntityBase] - ID ayarlandı: {Id}");
+        }
     }
 }
+

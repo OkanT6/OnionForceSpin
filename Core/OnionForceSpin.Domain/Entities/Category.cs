@@ -1,33 +1,41 @@
 ﻿using OnionForceSpin.Domain.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionForceSpin.Domain.Entities
 {
-    public class Category : EntityBase
+    public class Category:EntityBase
     {
+        // ➡️ 1️⃣ Fields (Private Değişkenler)
+        private int _internalId;
 
+        // ➡️ 2️⃣ Properties (Özellikler)
+        public int ParentId { get; set; }
+        public string Name { get; set; }
+        public int Priority { get; set; }
+        public ICollection<Detail> Details { get; set; }
+        public ICollection<ProductCategory> ProductCategories { get; set; }
+
+        // ➡️ 3️⃣ Constructors (Yapıcı Metotlar)
         public Category()
         {
-
+            Details = new List<Detail>();
+            ProductCategories = new List<ProductCategory>();
+            //Console.WriteLine("Parametresiz constructor çalıştı.");
         }
-        public Category(int parentId, string name, int priorty)
+
+        public Category(int parentId, string name, int priority) : this()
         {
             ParentId = parentId;
             Name = name;
-            Priorty = priorty;
+            Priority = priority;
+            Console.WriteLine("Parametreli constructor çalıştı.");
         }
-        public int ParentId { get; set; }
-        public string Name { get; set; }
-        public int Priorty { get; set; }
 
-
-        public ICollection<Detail> Details { get; set; }
-
-        public ICollection<Product> Products { get; set; }
-
+        //// ➡️ 4️⃣ Methods (Metotlar)
+        //public void PrintInfo()
+        //{
+        //    Console.WriteLine($"Category: {Name}, Priority: {Priority}");
+        //}
     }
 }
