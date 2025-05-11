@@ -17,7 +17,7 @@ namespace OnionForceSpin.Persistence.Configuration
             {
                 Id = 1,
                 Name = "Elektrik",
-                Priorty = 1,
+                Priority = 1,
                 ParentId=0,
                 CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
                 IsDeleted = false
@@ -29,7 +29,7 @@ namespace OnionForceSpin.Persistence.Configuration
             {
                 Id = 2,
                 Name = "Moda",
-                Priorty = 2,
+                Priority = 2,
                 ParentId = 0,
                 CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
                 IsDeleted = false
@@ -42,7 +42,7 @@ namespace OnionForceSpin.Persistence.Configuration
             {
                 Id = 3,
                 Name = "Bilgisayar",
-                Priorty = 1,
+                Priority = 1,
                 ParentId = 1,
                 CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
                 IsDeleted = false
@@ -54,7 +54,7 @@ namespace OnionForceSpin.Persistence.Configuration
             {
                 Id = 4,
                 Name = "Kadın",
-                Priorty = 1,
+                Priority = 1,
                 ParentId = 2,
                 CreatedDate = new DateTime(2025, 4, 30, 18, 45, 12),
                 IsDeleted = false
