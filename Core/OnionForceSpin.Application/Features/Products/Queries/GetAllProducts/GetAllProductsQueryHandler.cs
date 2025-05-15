@@ -4,6 +4,7 @@ using OnionForceSpin.Application.DTOs;
 using OnionForceSpin.Application.Interfaces.AutoMapper;
 using OnionForceSpin.Application.Interfaces.UnitOfWorks;
 using OnionForceSpin.Domain.Entities;
+using SendGrid.Helpers.Errors.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,31 +27,35 @@ namespace OnionForceSpin.Application.Features.Products.Queries.GetAllProducts
         {
             var products = await unitOfWork.GetReadRepository<Product>().GetAllAsync(include:p=>p.Include(p=>p.Brand));
 
-            //IList<GetAllProductsQueryResponse> response = new List<GetAllProductsQueryResponse>();
+            IList<GetAllProductsQueryResponse> response = new List<GetAllProductsQueryResponse>();
 
             //AutoMapper bu alttaki işlemi hallediyor
 
-            //foreach (var product in products)
-            //{
-            //    response.Add(new GetAllProductsQueryResponse(){
-            //        Description = product.Description,
-            //        Discount = product.Discount,
-            //        Price = product.Price-(product.Price*product.Discount/100),
-            //        Title= product.Title
-            //    });
-            //}
+            foreach (var product in products)
+            {
+                response.Add(new GetAllProductsQueryResponse()
+                {
+                    Description = product.Description,
+                    Discount = product.Discount,
+                    Price = product.Price - (product.Price * product.Discount / 100),
+                    Title = product.Title
+                });
+            }
 
             //var brand = mapper.Map<BrandDTO, Brand>(new Brand());
 
-            var map = mapper.Map<GetAllProductsQueryResponse, Product>(products);
+            //var mappedProducts = mapper.Map<GetAllProductsQueryResponse, Product>(products);
 
-            
 
-            foreach (var item in map)
+
+            foreach (var item in response)
                 item.Price = item.Price - (item.Price * item.Discount / 100);
 
 
-            return map;
+            //throw new BadRequestException("Kötü istek");
+            return response;
+
+
         }
     }
 }

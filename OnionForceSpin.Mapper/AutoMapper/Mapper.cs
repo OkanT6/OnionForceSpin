@@ -16,34 +16,32 @@ namespace OnionForceSpin.Mapper.AutoMapper
         public static List<TypePair> typePairs = new();
         private IMapper MapperContainer;
 
+
         public TDestination Map<TDestination, TSource>(TSource source, string? ignore = null)
         {
             Config<TDestination, TSource>(5, ignore);
-            return MapperContainer.Map<TSource, TDestination>(source);
-        }
 
-        // 🔄 Eklenen kısım: Mevcut bir nesne üzerinde mapleme
-        public void Map<TSource, TDestination>(TSource source, TDestination destination, string? ignore = null)
-        {
-            Config<TDestination, TSource>(5, ignore);
-            MapperContainer.Map(source, destination); // Var olan nesne üzerinde değişiklik
+            return MapperContainer.Map<TSource, TDestination>(source);
         }
 
         public IList<TDestination> Map<TDestination, TSource>(IList<TSource> source, string? ignore = null)
         {
             Config<TDestination, TSource>(5, ignore);
+
             return MapperContainer.Map<IList<TSource>, IList<TDestination>>(source);
         }
 
         public TDestination Map<TDestination>(object source, string? ignore = null)
         {
             Config<TDestination, object>(5, ignore);
+
             return MapperContainer.Map<TDestination>(source);
         }
 
         public IList<TDestination> Map<TDestination>(IList<object> source, string? ignore = null)
         {
             Config<TDestination, IList<object>>(5, ignore);
+
             return MapperContainer.Map<IList<TDestination>>(source);
         }
 
@@ -51,32 +49,23 @@ namespace OnionForceSpin.Mapper.AutoMapper
         {
             var typePair = new TypePair(typeof(TSource), typeof(TDestionation));
 
-            // TypePair zaten var ise, tekrar eklemiyoruz
             if (typePairs.Any(a => a.DestinationType == typePair.DestinationType && a.SourceType == typePair.SourceType) && ignore is null)
                 return;
 
             typePairs.Add(typePair);
 
-            // MapperConfiguration'ı sadece bir kez oluşturuyoruz
-            if (MapperContainer == null)
+            var config = new MapperConfiguration(cfg =>
             {
-                var config = new MapperConfiguration(cfg =>
+                foreach (var item in typePairs)
                 {
-                    foreach (var item in typePairs)
-                    {
-                        var mapConfig = cfg.CreateMap(item.SourceType, item.DestinationType).MaxDepth(depth);
+                    if (ignore is not null)
+                        cfg.CreateMap(item.SourceType, item.DestinationType).MaxDepth(depth).ForMember(ignore, x => x.Ignore()).ReverseMap();
+                    else
+                        cfg.CreateMap(item.SourceType, item.DestinationType).MaxDepth(depth).ReverseMap();
+                }
+            });
 
-                        if (ignore is not null)
-                            mapConfig.ForMember(ignore, x => x.Ignore());
-
-                        mapConfig.ReverseMap();
-                    }
-                });
-
-                MapperContainer = config.CreateMapper();
-            }
+            MapperContainer = config.CreateMapper();
         }
-
-
     }
 }

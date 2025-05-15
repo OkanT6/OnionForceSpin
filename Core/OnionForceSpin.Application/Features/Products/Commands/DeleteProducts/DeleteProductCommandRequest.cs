@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnionForceSpin.Application.Features.Products.Commands.DeleteProducts
 {
-    public class DeleteProductCommandRequest:IRequest
+    public class DeleteProductCommandRequest:IRequest<Unit>
     {
         public int Id { get; set; }
     }

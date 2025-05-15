@@ -54,8 +54,9 @@ namespace OnionForceSpin.Persistence.Repositories
             IQueryable<T> query = Table;
             if (!(enableTracking)) query = query.AsNoTracking();
             if (include is not null) query = include(query);
-            query.Where(predicate);
-            
+            // 🔄 Filtreyi doğrudan sorguya uyguluyoruz
+            query = query.Where(predicate);
+
             return await query.FirstOrDefaultAsync();
         }
 

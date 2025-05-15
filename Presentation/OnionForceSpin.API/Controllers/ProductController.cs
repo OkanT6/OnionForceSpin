@@ -5,6 +5,7 @@ using OnionForceSpin.Application.Features.Products.Commands.CreateProduct;
 using OnionForceSpin.Application.Features.Products.Commands.DeleteProducts;
 using OnionForceSpin.Application.Features.Products.Commands.UpdateProduct;
 using OnionForceSpin.Application.Features.Products.Queries.GetAllProducts;
+using SendGrid.Helpers.Errors.Model;
 
 namespace OnionForceSpin.API.Controllers
 {
@@ -23,6 +24,7 @@ namespace OnionForceSpin.API.Controllers
         public async Task<IActionResult> GetAllProducts()
         {
             var response = await mediator.Send(new GetAllProductsQueryRequest());
+            //throw new NotFoundException();
             return Ok(response);
         }
 
@@ -38,11 +40,14 @@ namespace OnionForceSpin.API.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
         {
-            await mediator.Send(request);
 
+
+            await mediator.Send(request);
             return Ok();
 
+
         }
+
 
         [HttpPut]
         public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)

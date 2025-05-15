@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OnionForceSpin.Application.Features.Products.Rules;
 using OnionForceSpin.Application.Interfaces.UnitOfWorks;
 using OnionForceSpin.Domain.Entities;
 
@@ -12,16 +13,24 @@ using System.Threading.Tasks;
 
 namespace OnionForceSpin.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly ProductRules productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork)
+
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork,ProductRules productRules)
         {
             this.unitOfWork = unitOfWork;
+            this.productRules = productRules;
         }
-        public async Task Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
+
+            IList<Product> products = await unitOfWork.GetReadRepository<Product>().GetAllAsync();
+
+            await productRules.ProductTitleMustNotBeSame(products, request.Title);
+
             Product product = new(request.Title,request.Description,request.BrandId,request.Price,request.Discount);
 
             await unitOfWork.GetWriteRepository<Product>().AddAsync(product);
@@ -39,6 +48,8 @@ namespace OnionForceSpin.Application.Features.Products.Commands.CreateProduct
                 }
                 await unitOfWork.SaveAsync();
             }
+
+            return Unit.Value;
         }
     }
 }

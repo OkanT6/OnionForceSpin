@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace OnionForceSpin.Application.Features.Products.Commands.UpdateProduct
 {
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest,Unit>
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
@@ -21,7 +21,7 @@ namespace OnionForceSpin.Application.Features.Products.Commands.UpdateProduct
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
-        public async Task Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
         {
             var product = await unitOfWork.GetReadRepository<Product>()
                 .GetAsync(p => p.Id == request.Id && p.IsDeleted == false);
@@ -70,6 +70,8 @@ namespace OnionForceSpin.Application.Features.Products.Commands.UpdateProduct
 
             await unitOfWork.GetWriteRepository<Product>().UpdateAsync(mappedProduct);
             await unitOfWork.SaveAsync();
+
+            return Unit.Value;
         }
     }
 }
