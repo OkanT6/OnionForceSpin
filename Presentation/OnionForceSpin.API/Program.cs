@@ -5,6 +5,7 @@ using OnionForceSpin.Application.Exceptions;
 using MediatR;
 using FluentValidation;
 using OnionForceSpin.Application.CustomMiddlewares;
+using OnionForceSpin.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 var env = builder.Environment;
@@ -20,6 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 
