@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,12 @@ namespace OnionForceSpin.Infrastructure.Tokens
         }
         public string CreateRefreshToken()
         {
-            return null;
+            var randomNumber = new byte[64];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                return Convert.ToBase64String(randomNumber);
+            }  
         }
 
         public async Task<JwtSecurityToken> CreateToken(User user, IList<string> roles)
@@ -59,9 +65,27 @@ namespace OnionForceSpin.Infrastructure.Tokens
             return token;
         }
 
-        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string token)
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token)
         {
-            throw new NotImplementedException();
+            var tokenValidationParameters=new TokenValidationParameters()
+            {
+                ValidateAudience = false,
+                ValidateIssuer = false,
+                ValidateLifetime = false, // Do not validate the token's lifetime
+                ValidateIssuerSigningKey = true,
+                //ValidIssuer = tokenSettings.Issuer,
+                //ValidAudience = tokenSettings.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenSettings.Secret))
+            };
+
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
+            if(securityToken is not JwtSecurityToken jwtSecurityToken || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+               throw new SecurityTokenException("Invalid token");
+            }
+
+            return principal;
         }
     }
 }

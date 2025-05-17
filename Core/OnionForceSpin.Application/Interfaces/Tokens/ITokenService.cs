@@ -13,6 +13,6 @@ namespace OnionForceSpin.Application.Interfaces.Tokens
     {
         Task<JwtSecurityToken> CreateToken(User user, IList<string> roles);
         string CreateRefreshToken();
-        ClaimsPrincipal? GetPrincipalFromExpiredToken(string token);
+        ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token);
     }
 }
