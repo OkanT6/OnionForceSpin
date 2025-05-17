@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\OnionForceSpin.Infrastructure\OnionForceSpin.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\OnionForceSpin.Persistence\OnionForceSpin.Persistence.csproj" />
     <ProjectReference Include="..\..\OnionForceSpin.Mapper\OnionForceSpin.Mapper.csproj" />
   </ItemGroup>
