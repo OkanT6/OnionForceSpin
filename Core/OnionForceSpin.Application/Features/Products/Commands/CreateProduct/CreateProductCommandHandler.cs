@@ -1,5 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using OnionForceSpin.Application.Bases;
 using OnionForceSpin.Application.Features.Products.Rules;
+using OnionForceSpin.Application.Interfaces.AutoMapper;
 using OnionForceSpin.Application.Interfaces.UnitOfWorks;
 using OnionForceSpin.Domain.Entities;
 
@@ -13,15 +16,13 @@ using System.Threading.Tasks;
 
 namespace OnionForceSpin.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
+    public class CreateProductCommandHandler :BaseHandler, IRequestHandler<CreateProductCommandRequest, Unit>
     {
-        private readonly IUnitOfWork unitOfWork;
         private readonly ProductRules productRules;
 
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork,ProductRules productRules)
+        public CreateProductCommandHandler(ProductRules productRules, IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor)
         {
-            this.unitOfWork = unitOfWork;
             this.productRules = productRules;
         }
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
